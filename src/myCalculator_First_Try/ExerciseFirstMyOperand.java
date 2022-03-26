@@ -1,10 +1,10 @@
-package mineCalculator_FIRST_TRY;
+package myCalculator_First_Try;
 
-public class ExerciseFirstMineOperand {
+public class ExerciseFirstMyOperand {
     private int firstOperand;
     private int secondOperand;
 
-    public ExerciseFirstMineOperand(int firstOperand, int secondOperand) {
+    public ExerciseFirstMyOperand(int firstOperand, int secondOperand) {
         if(firstOperand == 0 || secondOperand == 0) throw new IllegalArgumentException();
         this.firstOperand = firstOperand;
         this.secondOperand = secondOperand;

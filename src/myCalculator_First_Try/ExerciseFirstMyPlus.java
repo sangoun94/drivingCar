@@ -1,10 +1,10 @@
-package mineCalculator_FIRST_TRY;
+package myCalculator_First_Try;
 
-public class ExerciseFirstMinePlus {
+public class ExerciseFirstMyPlus {
     private int firstOperand;
     private int secondOperand;
 
-    public ExerciseFirstMinePlus(int firstOperand, int secondOperand) {
+    public ExerciseFirstMyPlus(int firstOperand, int secondOperand) {
         this.firstOperand = firstOperand;
         this.secondOperand = secondOperand;
     }

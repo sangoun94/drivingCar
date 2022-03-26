@@ -1,10 +1,10 @@
-package mineCalculator_FIRST_TRY;
+package myCalculator_First_Try;
 
-public class ExerciseFirstMineOperator {
+public class ExerciseFirstMyOperator {
     private String[] operatorArr = {"/","*","+","-"};
     private String resultOperator = null;
 
-    public ExerciseFirstMineOperator(String inputOperator) {
+    public ExerciseFirstMyOperator(String inputOperator) {
         for (String operator : operatorArr) {
             if (inputOperator.equals(operator)) this.resultOperator = operator;
         }
