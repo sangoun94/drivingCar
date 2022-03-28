@@ -2,13 +2,13 @@ package myCalculator_Second_Try;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.*;
+
 
 
 
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+
 
 public class ExerciseSecondMyCalculatorTest {
 
@@ -44,7 +44,6 @@ public class ExerciseSecondMyCalculatorTest {
     public void validationOpertor() {
         ExerciseSecondMyCalculator calculator = new ExerciseSecondMyCalculator(new ExerciseSecondMyOperand(new int[]{3, 3}), new ExerciseSecondMyOperator("/"));
         ExerciseSecondMyOperator operator = new ExerciseSecondMyOperator(calculator);
-        assertThrows()
     }
 
 }
