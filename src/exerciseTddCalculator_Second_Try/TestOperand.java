@@ -19,4 +19,11 @@ public class TestOperand {
 
         assertThat(5).isEqualTo(operand.getGenerateOperandSize());
     }
+
+    @Test
+    public void 피연산자가져오기() {
+        Operand operand = new Operand(new int[]{1, 2, 3, 4, 5});
+
+        assertThat(new int[]{1,2,3,4,5}).isEqualTo(operand.getOperands());
+    }
 }

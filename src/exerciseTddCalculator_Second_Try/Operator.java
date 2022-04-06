@@ -1,10 +1,14 @@
 package exerciseTddCalculator_Second_Try;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Operator {
     private String[] operators;
     private String[] arithmeticOperator = {"+","-","*","/"};
+    private String num = "";
+
 
     public Operator(String[] operators) {
         arithmeticOperatorArgumentCheck(operators);
@@ -21,5 +25,14 @@ public class Operator {
 
     public int getGenerateOperatorSize() {
         return operators.length;
+    }
+
+    public Map<Integer, String> getIndexAndOperator() {
+        Map<Integer, String> map = new HashMap<>();
+
+        for (int i = 0; i < operators.length; i++) {
+            map.put(i, operators[i]);
+        }
+        return map;
     }
 }

@@ -17,4 +17,8 @@ public class Operand {
     public int getGenerateOperandSize() {
         return operands.length;
     }
+
+    public int[] getOperands() {
+        return operands;
+    }
 }
