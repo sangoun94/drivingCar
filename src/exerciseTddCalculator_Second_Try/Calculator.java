@@ -1,5 +1,7 @@
 package exerciseTddCalculator_Second_Try;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 
 public class Calculator {
@@ -18,15 +20,23 @@ public class Calculator {
     private void noDivisionZero(Operand operand, Operator operator) {
         int[] operands = operand.getOperands();
 
+        divisionCheckRunner(operands);
+    }
+
+    private void divisionCheckRunner(int[] operands) {
         for (Map.Entry<Integer,String> entry : indexAndOperator.entrySet()) {
             int index = entry.getKey().intValue();
             String value = entry.getValue();
 
-            if (value.equals("/")) {
-                for (int i = 0; i < operands.length - 1; i++) {
-                    if (i == index && operands[i+1] == 0) {
-                        throw new IllegalArgumentException("0으로 나누기를 할 수 없습니다.");
-                    }
+            divisionCheckZeroException(operands, index, value);
+        }
+    }
+
+    private void divisionCheckZeroException(int[] operands, int index, String value) {
+        if (value.equals("/")) {
+            for (int i = 0; i < operands.length - 1; i++) {
+                if (i == index && operands[i+1] == 0) {
+                    throw new IllegalArgumentException("0으로 나누기를 할 수 없습니다.");
                 }
             }
         }
@@ -38,30 +48,57 @@ public class Calculator {
         }
     }
 
-    public int polynomialOperation() {
+    public int polynomial() {
         int returnOperation = 0;
+
+
+        return polynomialOperation();
+    }
+
+    private int polynomialOperation() {
+        int returnValue = 0;
 
         for (Map.Entry<Integer,String> entry: indexAndOperator.entrySet()) {
             int index = entry.getKey().intValue();
             String value = entry.getValue();
 
-            for (int i = 0; i < operand.getGenerateOperandSize() - 1; i++) {
-                int preOperand = this.operand.getOperands()[i];
-                int sufOperand = this.operand.getOperands()[i + 1];
-
-                if (value.equals("/") && i == index) {
-                    returnOperation = preOperand / sufOperand;
-                } else if (value.equals("+") && i == index) {
-                    returnOperation = preOperand + sufOperand;
-                } else if (value.equals("-") && i == index) {
-                    returnOperation = preOperand - sufOperand;
-                } else if (value.equals("*") && i == index) {
-                    returnOperation = preOperand * sufOperand;
-                }
-
-            }
+            returnValue = getReturnOperation(index, value);
         }
+        return returnValue;
+    }
 
-        return returnOperation;
+    private int getReturnOperation(int index, String value) {
+        int returnValue = 0;
+        ArrayList<Integer> operandList = new ArrayList<>();
+        ArrayList<Integer> operatorList = new ArrayList<>();
+
+        getOperandList(operandList);
+        getOperandList(operatorList);
+
+        for (int i = 0; i < operandList.size() - 1; i++) {
+            int preOperand = operandList.get(i);
+            int sufOperand = operandList.get(i+1);
+
+            if (value.equals("/") && i == index) {
+                returnValue = preOperand / sufOperand;
+            } else if (value.equals("+") && i == index) {
+                returnValue = preOperand + sufOperand;
+            } else if (value.equals("-") && i == index) {
+                returnValue = preOperand - sufOperand;
+            } else if (value.equals("*") && i == index) {
+                returnValue = preOperand * sufOperand;
+            }
+
+            operandList.remove(i);
+            operandList.remove(i+1);
+            operandList.add(returnValue);
+        }
+        return returnValue;
+    }
+
+    private void getOperandList(ArrayList<Integer> list) {
+        for (int getInt:operand.getOperands()) {
+            list.add(getInt);
+        }
     }
 }

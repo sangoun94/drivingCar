@@ -28,6 +28,6 @@ public class TestCalculator {
     public void 다항연산() {
         Calculator calculator = new Calculator(operand, operator);
 
-        assertThat(13).isEqualTo(calculator.polynomialOperation());
+        assertThat(13).isEqualTo(calculator.polynomial());
     }
 }
