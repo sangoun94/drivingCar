@@ -33,16 +33,17 @@ public class ExerciseCalculatorTest {
     @ParameterizedTest
     @ValueSource(strings = {"#", "$"})
     void partCalculatePermittedOperatorTest(String input){
-        assertThatIllegalArgumentException().isThrownBy(() -> {
-            assertThat(11).isEqualTo(exerciseCalculator.partCalculator(input, 5, "5"));
-        });
+        assertThatThrownBy(() -> {
+            exerciseCalculator.partCalculator(input, 5, "5");
+        }).isInstanceOf(IllegalArgumentException.class);
+
     }
 
     @ParameterizedTest
     @NullAndEmptySource
     void partCarculateNullInputTest(String input) {
-        assertThatIllegalArgumentException().isThrownBy(() -> {
-           assertThat(10).isEqualTo(exerciseCalculator.partCalculator("+", 5,input));
-        });
+        assertThatThrownBy(() -> {
+            exerciseCalculator.partCalculator("+", 5,input);
+        }).isInstanceOf(IllegalArgumentException.class);
     }
 }

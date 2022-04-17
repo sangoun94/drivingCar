@@ -33,16 +33,18 @@ public class ExerciseFirstMyCalculatorTest {
     @ParameterizedTest
     @CsvSource({"0,1", "1,0"})
     public void operand(int input, int input2) {
-        assertThatIllegalArgumentException().isThrownBy(() -> {
-            assertThat(11).isEqualTo(new ExerciseFirstMyOperand(input, input2));
-        });
+        assertThatThrownBy(() -> {
+            new ExerciseFirstMyOperand(input, input2);
+        }).isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("정수를 입력해주세요.");
     }
 
     @ParameterizedTest
     @ValueSource(strings = {"/", "8"})
     public void operator(String inputOperator) {
-        assertThatIllegalArgumentException().isThrownBy(() -> {
-            assertThat("/").isEqualTo(new ExerciseFirstMyOperator(inputOperator));
-        });
+        assertThatThrownBy(() -> {
+            new ExerciseFirstMyOperator(inputOperator);
+        }).isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("정수를 입력해주세요.");
     }
 }
