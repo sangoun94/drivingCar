@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Advance {
     private final Random random = new Random();
-    private static final int MAX = 9;
+    private static final int MAX = 10;
 
     public Advance() {
     }
@@ -26,5 +26,4 @@ public class Advance {
     private int getRandom() {
         return random.nextInt(MAX);
     }
-
 }
