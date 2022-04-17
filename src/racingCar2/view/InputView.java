@@ -23,6 +23,9 @@ public class InputView {
     private void startInitialization() {
         System.out.println("차량 수를 입력하세요.");
         this.carCount = scanner.nextInt();
+
+        scanner.nextLine(); //개행문자 제거
+
         System.out.println("몇 라운드 진행할까요?");
         this.roundCount = scanner.nextInt();
     }
